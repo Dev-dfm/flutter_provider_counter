@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_provider_counter/providers/counter_provider.dart';
+import 'package:flutter_provider_counter/providers/shopping_cart_provider.dart';
+import 'package:provider/provider.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({Key? key}) : super(key: key);
@@ -7,16 +10,19 @@ class SecondScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Provider Example App'),
+        title: Text('Provider Example App ${context.watch<Counter>().count}'),
       ),
       body: Center(
         child: Column(
-          children: const [Text(''), Text(''),],
+          children: [
+            Text('${context.watch<ShoppingCart>().count}'),
+            Text('${context.watch<ShoppingCart>().cart}'),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         key: const Key('addItem_floatingActionButton'),
-        onPressed: () {},
+        onPressed: () => context.read<ShoppingCart>().addItem('Bread'),
         tooltip: 'Add Item',
         child: const Icon(Icons.add),
       ),
