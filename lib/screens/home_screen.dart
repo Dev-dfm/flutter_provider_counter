@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:flutter_provider_counter/providers/counter_provider.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -7,13 +10,13 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Provider Example App'),
+        title: const Text('Provider Example App'),
       ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: const [
             Text('You have pushed the button this many times:'),
           ],
         ),
@@ -22,28 +25,34 @@ class MyHomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            key: Key('decrement_floatingActionButton'),
-            onPressed: () {},
+            key: const Key('decrement_floatingActionButton'),
+            onPressed: () => context
+                .read<Counter>()
+                .decrement(), // call the decrement method using the Counter provider
             tooltip: 'Decrement',
-            child: Icon(Icons.remove),
+            child: const Icon(Icons.remove),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           ),
           FloatingActionButton(
-            key: Key('reset_floatingActionButton'),
-            onPressed: () {},
+            key: const Key('reset_floatingActionButton'),
+            onPressed: () => context
+                .read<Counter>()
+                .reset(), // call the reset method using the Counter provider
             tooltip: 'Reset',
-            child: Icon(Icons.exposure_zero),
+            child: const Icon(Icons.exposure_zero),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           ),
           FloatingActionButton(
-            key: Key('increment_floatingActionButton'),
-            onPressed: () {},
+            key: const Key('increment_floatingActionButton'),
+            onPressed: () => context
+                .read<Counter>()
+                .increment(), // call the increment method using the Counter provider
             tooltip: 'Increment',
-            child: Icon(Icons.add),
+            child: const Icon(Icons.add),
           ),
         ],
       ),
