@@ -16,8 +16,8 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Text('You have pushed the button this many times:'),
+          children: [
+            Text('You have pushed the button this many times: ${context.watch<Counter>().count}'),
           ],
         ),
       ),
