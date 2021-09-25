@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const MyHomePage(),
-        'second': (context) => const SecondScreen(),
+        '/second': (context) => const SecondScreen(),
       },
     );
   }

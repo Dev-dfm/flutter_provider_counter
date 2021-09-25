@@ -17,7 +17,12 @@ class MyHomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('You have pushed the button this many times: ${context.watch<Counter>().count}'),
+            Text(
+                'You have pushed the button this many times: ${context.watch<Counter>().count}'),
+            ElevatedButton(
+              onPressed: () => Navigator.pushNamed(context, '/second'),
+              child: const Text('Launch screen'),
+            ),
           ],
         ),
       ),
