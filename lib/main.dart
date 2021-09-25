@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider_counter/providers/counter_provider.dart';
 import 'package:flutter_provider_counter/screens/home_screen.dart';
+import 'package:flutter_provider_counter/screens/second_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const MyHomePage(),
+        'second': (context) => const SecondScreen(),
       },
     );
   }
